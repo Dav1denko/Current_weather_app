@@ -90,9 +90,9 @@ adapter.setWeatherSityForDate(weatherSity);
 
     @Override
     public void showError() {
-        String apiKey = BuildConfig.API_KEY;
 
-        Toast.makeText(this, "Ошибка" + apiKey, Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show();
     }
 
     @Override
