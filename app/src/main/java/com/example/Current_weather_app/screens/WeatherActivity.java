@@ -3,8 +3,10 @@ package com.example.Current_weather_app.screens;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
     private RecyclerView recyclerViewWeather;
     private WeatherAdapter adapter;
     private WeatherPresenter presenter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
 
@@ -37,6 +40,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         setContentView(R.layout.activity_main);
         presenter = new WeatherPresenter(this);
         recyclerViewWeather = findViewById(R.id.recyclerViewWeatherCity);
+        swipeRefreshLayout = findViewById(R.id.refreshLayout);
 
         adapter = new WeatherAdapter();
         recyclerViewWeather.setLayoutManager(new LinearLayoutManager(this));
@@ -47,6 +51,14 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         presenter.checkLocaleLanguage();
         presenter.loadNameSity();
         presenter.loadData();
+        swipeRefreshLayout.setColorSchemeColors(Color.RED);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.loadData();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         adapter.setOnClickListener(new OnClickListener() {
             @Override
