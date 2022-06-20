@@ -20,6 +20,7 @@ import com.example.Current_weather_app.POJO.Main;
 import com.example.Current_weather_app.POJO.NameSity;
 import com.example.Current_weather_app.POJO.Weather;
 import com.example.Current_weather_app.POJO.WeatherSity;
+import com.example.Current_weather_app.POJO.Wind;
 import com.example.Current_weather_app.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -53,6 +54,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         recyclerViewWeather.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewWeather.setAdapter(adapter);
         adapter.setMains(new Main());
+        adapter.setWinds(new Wind());
         adapter.setWeatherSityForDate(new WeatherSity());
         adapter.setWeathers(new ArrayList<Weather>());
         presenter.checkLocaleLanguage();
@@ -100,6 +102,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
     @Override
     public void showData(WeatherSity weatherSity) {
 adapter.setMains(weatherSity.getMain());
+adapter.setWinds(weatherSity.getWind());
 adapter.setWeathers(weatherSity.getWeather());
 adapter.setWeatherSityForDate(weatherSity);
 shimmerFrameLayout.stopShimmer();

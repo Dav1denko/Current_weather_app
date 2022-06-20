@@ -17,6 +17,7 @@ import com.example.Current_weather_app.POJO.Main;
 import com.example.Current_weather_app.POJO.NameSity;
 import com.example.Current_weather_app.POJO.Weather;
 import com.example.Current_weather_app.POJO.WeatherSity;
+import com.example.Current_weather_app.POJO.Wind;
 import com.example.Current_weather_app.R;
 import com.squareup.picasso.Picasso;
 
@@ -28,6 +29,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     private NameSity nameSity;
     private OnClickListener onClickListener;
     private Main mains;
+    private Wind winds;
     private List<Weather> weathers;
     private WeatherSity weatherSityForDate;
 
@@ -64,6 +66,16 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
         notifyDataSetChanged();
     }
 
+    public Wind getWinds() {
+        return winds;
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setWinds(Wind winds) {
+        this.winds = winds;
+        notifyDataSetChanged();
+    }
+
     public List<Weather> getWeathers() {
         return weathers;
     }
@@ -81,7 +93,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
         return new WeatherViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
 Weather weather = weathers.get(position);
@@ -91,7 +103,9 @@ Picasso.get().load(String.format(IconURL, weather.getIcon()))
         .resize(700,700)
         .into(holder.imageViewWeatherStatus);
 holder.textViewNameDescription.setText(weather.getDescription());
-holder.textViewNameTemperature.setText(Double.toString(mains.getTemp()));
+holder.textViewNameTemperature.setText(String.format("%.0f",mains.getTemp()));
+holder.textViewHumidity.setText(Integer.toString(mains.getHumidity()));
+holder.textViewWindSpeed.setText(String.format("%.0f",winds.getSpeed()));
 holder.textViewNameDate.setText(dateConverter.dateForAdapter(weatherSityForDate.getDt(),
         weatherSityForDate.getTimezone()));
 holder.textViewNameCity.setText(nameSity.getNameSity());
@@ -128,6 +142,8 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
         private TextView textViewNameDescription;
         private ImageView imageViewWeatherStatus;
         private TextView textViewNameCity;
+        private TextView textViewHumidity;
+        private TextView textViewWindSpeed;
 
 
 
@@ -138,6 +154,8 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
             textViewNameDescription = itemView.findViewById(R.id.textView_Description);
             imageViewWeatherStatus = itemView.findViewById(R.id.imageView_WeatherStatus);
             textViewNameDate = itemView.findViewById(R.id.textView_Date);
+            textViewWindSpeed = itemView.findViewById(R.id.textView_windSpeed);
+            textViewHumidity = itemView.findViewById(R.id.textView_Humidity);
             textViewNameCity = itemView.findViewById(R.id.textView_NameCity);
             textViewNameCity.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -152,11 +170,6 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
                 }
                 }
             });
-
-
-
-
-
 
 
                            }

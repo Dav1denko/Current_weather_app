@@ -52,6 +52,9 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="10pt"
+            android:gravity="center"
+            android:padding="2dp"
+            android:lineSpacingExtra="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
             app:layout_constraintTop_toBottomOf="@+id/textView_Temperature" />
@@ -74,16 +77,38 @@
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView_WeatherStatus" />
+        <TextView
+            android:id="@+id/textView_Humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Description"
+             />
+        <TextView
+            android:id="@+id/textView_windSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Humidity"
+            />
 
         <EditText
             android:id="@+id/TextView_ChangeNameCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="25sp"
+            android:ems="7"
             android:gravity="center"
             android:inputType="text"
             android:minHeight="48dp"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView_Icon"
             app:layout_constraintTop_toTopOf="parent" />
