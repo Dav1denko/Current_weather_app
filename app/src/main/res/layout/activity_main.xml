@@ -6,7 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.WeatherActivity">
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/shimmer">
 
+        <include layout="@layout/shimmer_city_layout">
+
+        </include>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
@@ -19,6 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

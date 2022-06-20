@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Alex Skywalker/AndroidStudioProjects/Current_weather_app/app/src/main/res/layout/activity_main.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Alex Skywalker/AndroidStudioProjects/Current_weather_app/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Alex Skywalker/AndroidStudioProjects/Current_weather_app/app/src/main/res/layout/city_item.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Alex Skywalker/AndroidStudioProjects/Current_weather_app/app/src/main/res/layout/shimmer_city_layout.xml" value="0.25" />
         <entry key="..\:/Users/L/AndroidStudioProjects/Weather_app_ver1/app/src/main/res/layout/activity_main.xml" value="0.3151041666666667" />
         <entry key="..\:/Users/L/AndroidStudioProjects/Weather_app_ver1/app/src/main/res/layout/city_item.xml" value="0.5" />
       </map>

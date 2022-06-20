@@ -6,6 +6,7 @@ import com.example.Current_weather_app.POJO.WeatherSity;
 public interface WeatherView {
 
     void showData(WeatherSity weatherSity);
-    void showError();
+    void showErrorInternet();
     void showName(NameSity nameSity);
+    void showErrorNameSity();
 }

@@ -2,6 +2,7 @@ package com.example.Current_weather_app.screens;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.example.Current_weather_app.API.ApiFactory;
 import com.example.Current_weather_app.API.ApiService;
@@ -11,6 +12,7 @@ import com.example.Current_weather_app.POJO.NameSity;
 import com.example.Current_weather_app.POJO.WeatherSity;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -25,6 +27,7 @@ public class WeatherPresenter {
     private WeatherView weatherView;
     private final String apiKey = BuildConfig.API_KEY;
     private final String tempInCelsius = "metric";
+    private final String ErrorInternet = "Unable to resolve host \"api.openweathermap.org\": No address associated with hostname";
 
 
    private final NameSity nameSity = new NameSity();
@@ -69,7 +72,17 @@ weatherView.showData(weatherSity);
                            },new Consumer<Throwable>(){
                                @Override
                                public void accept(Throwable throwable) throws Exception {
-weatherView.showError();
+                                   if(Objects.equals(throwable.getMessage(), ErrorInternet))
+                                   {weatherView.showErrorInternet();
+
+                                   }else if(Objects.equals(throwable.getMessage(), "HTTP 404 Not Found")){
+                                       preferences.edit().clear().apply();
+                                       weatherView.showErrorNameSity();
+
+                                   }
+
+
+
                                }
                            }
                 );

@@ -127,7 +127,6 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
         private TextView textViewNameDate;
         private TextView textViewNameDescription;
         private ImageView imageViewWeatherStatus;
-        private Button buttonUpdateStatus;
         private TextView textViewNameCity;
 
 
@@ -139,7 +138,6 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
             textViewNameDescription = itemView.findViewById(R.id.textView_Description);
             imageViewWeatherStatus = itemView.findViewById(R.id.imageView_WeatherStatus);
             textViewNameDate = itemView.findViewById(R.id.textView_Date);
-            buttonUpdateStatus = itemView.findViewById(R.id.button_UpdateStatus);
             textViewNameCity = itemView.findViewById(R.id.textView_NameCity);
             textViewNameCity.setOnClickListener(new View.OnClickListener() {
                 @Override

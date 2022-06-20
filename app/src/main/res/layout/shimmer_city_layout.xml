@@ -31,6 +31,7 @@
             android:layout_height="170dp"
             android:adjustViewBounds="true"
             android:scaleType="center"
+            android:background="@color/shimmer_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline"
             />
@@ -42,6 +43,7 @@
             android:text="TextView"
             android:paddingTop="35dp"
             android:textSize="20pt"
+            android:background="@color/shimmer_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
             app:layout_constraintTop_toBottomOf="@id/guideline" />
@@ -52,6 +54,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="10pt"
+            android:background="@color/shimmer_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
             app:layout_constraintTop_toBottomOf="@+id/textView_Temperature" />
@@ -68,12 +71,14 @@
             android:id="@+id/textView_Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="____________"
             android:textSize="25sp"
             android:gravity="center"
             android:layout_marginStart="10dp"
+            android:background="@color/shimmer_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView_WeatherStatus" />
+
 
         <EditText
             android:id="@+id/TextView_ChangeNameCity"
@@ -92,7 +97,6 @@
             android:id="@+id/textView_NameCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textSize="20pt"
             app:layout_constraintEnd_toEndOf="@+id/TextView_ChangeNameCity"
             app:layout_constraintStart_toStartOf="@+id/TextView_ChangeNameCity"

@@ -8,7 +8,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Current_weather_app.ADAPTERS.OnClickListener;
@@ -19,6 +21,7 @@ import com.example.Current_weather_app.POJO.NameSity;
 import com.example.Current_weather_app.POJO.Weather;
 import com.example.Current_weather_app.POJO.WeatherSity;
 import com.example.Current_weather_app.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -28,6 +31,8 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
     private WeatherAdapter adapter;
     private WeatherPresenter presenter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private ShimmerFrameLayout shimmerFrameLayout;
+
 
 
 
@@ -43,7 +48,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         presenter = new WeatherPresenter(this);
         recyclerViewWeather = findViewById(R.id.recyclerViewWeatherCity);
         swipeRefreshLayout = findViewById(R.id.refreshLayout);
-
+        shimmerFrameLayout = findViewById(R.id.shimmer);
         adapter = new WeatherAdapter();
         recyclerViewWeather.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewWeather.setAdapter(adapter);
@@ -78,10 +83,11 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
                 else {
                     presenter.loadNameSity();
                     presenter.loadData();
-                    Toast.makeText(WeatherActivity.this, "Ошибка, Неверно указан город", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
+
 
 
 
@@ -96,6 +102,8 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
 adapter.setMains(weatherSity.getMain());
 adapter.setWeathers(weatherSity.getWeather());
 adapter.setWeatherSityForDate(weatherSity);
+shimmerFrameLayout.stopShimmer();
+recyclerViewWeather.setVisibility(View.VISIBLE);
 
     }
 
@@ -105,10 +113,21 @@ adapter.setWeatherSityForDate(weatherSity);
     }
 
     @Override
-    public void showError() {
+    public void showErrorInternet() {
+        recyclerViewWeather.setVisibility(View.GONE);
+        shimmerFrameLayout.startShimmer();
 
 
-        Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "подключите интернет и обновите", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showErrorNameSity() {
+        Toast.makeText(this, "Город не найден", Toast.LENGTH_SHORT).show();
+
+
+
     }
 
     @Override
