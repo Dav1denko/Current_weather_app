@@ -21,6 +21,7 @@ import com.example.Current_weather_app.POJO.WeatherSity;
 import com.example.Current_weather_app.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class WeatherActivity extends AppCompatActivity implements WeatherView {
     private RecyclerView recyclerViewWeather;
@@ -38,6 +39,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         presenter = new WeatherPresenter(this);
         recyclerViewWeather = findViewById(R.id.recyclerViewWeatherCity);
         swipeRefreshLayout = findViewById(R.id.refreshLayout);
