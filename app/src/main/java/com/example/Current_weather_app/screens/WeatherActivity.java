@@ -76,7 +76,9 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
                 presenter.ChangeNameSityForAdapter(nameSity);
                 presenter.loadData();}
                 else {
-                    Toast.makeText(WeatherActivity.this, "Ошибка, введите город", Toast.LENGTH_SHORT).show();
+                    presenter.loadNameSity();
+                    presenter.loadData();
+                    Toast.makeText(WeatherActivity.this, "Ошибка, Неверно указан город", Toast.LENGTH_SHORT).show();
                 }
             }
         });
