@@ -5,7 +5,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -150,12 +149,12 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
         public WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewChangeNameCity = itemView.findViewById(R.id.TextView_ChangeNameCity);
-            textViewNameTemperature = itemView.findViewById(R.id.textView_Temperature);
-            textViewNameDescription = itemView.findViewById(R.id.textView_Description);
+            textViewNameTemperature = itemView.findViewById(R.id.textView_SetTemperature);
+            textViewNameDescription = itemView.findViewById(R.id.textView_SetDescription);
             imageViewWeatherStatus = itemView.findViewById(R.id.imageView_WeatherStatus);
-            textViewNameDate = itemView.findViewById(R.id.textView_Date);
-            textViewWindSpeed = itemView.findViewById(R.id.textView_windSpeed);
-            textViewHumidity = itemView.findViewById(R.id.textView_Humidity);
+            textViewNameDate = itemView.findViewById(R.id.textView_SetDate);
+            textViewWindSpeed = itemView.findViewById(R.id.textView_SetWindSpeed);
+            textViewHumidity = itemView.findViewById(R.id.textView_SetHumidity);
             textViewNameCity = itemView.findViewById(R.id.textView_NameCity);
             textViewNameCity.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Current_weather_app</string>
+    <string name="Description">За окном:</string>
+    <string name="Humidity">Влажность:</string>
+    <string name="WindSpeed">Скорость ветра:</string>
+    <string name="metric">м/с</string>
 </resources>

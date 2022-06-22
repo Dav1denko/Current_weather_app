@@ -37,7 +37,7 @@
             />
 
         <TextView
-            android:id="@+id/textView_Temperature"
+            android:id="@+id/textView_SetTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <TextView
-            android:id="@+id/textView_Date"
+            android:id="@+id/textView_SetDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -57,7 +57,7 @@
             android:background="@color/shimmer_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Temperature" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetTemperature" />
 
         <ImageView
             android:id="@+id/imageView_Icon"
@@ -68,7 +68,7 @@
             tools:layout_editor_absoluteX="69dp" />
 
         <TextView
-            android:id="@+id/textView_Description"
+            android:id="@+id/textView_SetDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="____________"

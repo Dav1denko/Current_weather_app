@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintGuide_percent="0.45" />
 
         <ImageView
             android:id="@+id/imageView_WeatherStatus"
@@ -37,28 +37,45 @@
             />
 
         <TextView
-            android:id="@+id/textView_Temperature"
+            android:id="@+id/textView_SetTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="99"
+            android:textColor="@color/black"
             android:paddingTop="35dp"
-            android:textSize="20pt"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:layout_marginRight="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
             app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <TextView
-            android:id="@+id/textView_Date"
+            android:id="@+id/textViewIconDegree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="35dp"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/textView_SetTemperature"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            android:text="°С" />
+
+        <TextView
+            android:id="@+id/textView_SetDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textSize="10pt"
+            android:textSize="25sp"
+            android:textColor="@color/black"
             android:gravity="center"
             android:padding="2dp"
+            android:textStyle="italic"
             android:lineSpacingExtra="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Temperature" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetTemperature" />
 
         <ImageView
             android:id="@+id/imageView_Icon"
@@ -74,35 +91,107 @@
             android:id="@+id/textView_Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginTop="8dp"
             android:textSize="25sp"
             android:gravity="center"
+            android:textColor="@color/black"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView_WeatherStatus" />
+            app:layout_constraintTop_toBottomOf="@id/textView_SetDate"
+            app:layout_constraintEnd_toStartOf="@+id/textView_SetDescription"
+            android:text="@string/Description" />
+
+        <TextView
+            android:id="@+id/textView_SetDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="TextView123123123123123123123123"
+            android:inputType="textMultiLine"
+            android:textSize="30sp"
+            android:layout_marginTop="5dp"
+            android:maxLines="2"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_Description"
+            app:layout_constraintTop_toBottomOf="@id/textView_SetDate" />
+
         <TextView
             android:id="@+id/textView_Humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textSize="25sp"
-            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Description"
-             />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription"
+            android:text="@string/Humidity" />
+
         <TextView
-            android:id="@+id/textView_windSpeed"
+            android:id="@+id/percentForHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Humidity"
-            />
+            android:layout_marginTop="5dp"
+            android:text="%"
+            android:textColor="@color/black"
+            android:layout_marginStart="2dp"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/textView_SetHumidity"
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription" />
 
+        <TextView
+            android:id="@+id/textView_SetHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="50"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_Humidity"
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription" />
+
+        <TextView
+            android:id="@+id/textView_WindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/WindSpeed"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Humidity" />
+
+        <TextView
+            android:id="@+id/textView_SetWindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/black"
+            android:layout_marginRight="100dp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_WindSpeed"
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity"
+            />
+        <TextView
+            android:id="@+id/metricForWindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/metric"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@+id/textView_SetWindSpeed"
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity" />
         <EditText
             android:id="@+id/TextView_ChangeNameCity"
             android:layout_width="wrap_content"
