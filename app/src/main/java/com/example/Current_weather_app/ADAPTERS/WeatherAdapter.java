@@ -100,7 +100,7 @@ Weather weather = weathers.get(position);
 DateConverter dateConverter = new DateConverter();
 final String IconURL = "http://openweathermap.org/img/wn/%s@2x.png";
 Picasso.get().load(String.format(IconURL, weather.getIcon()))
-        .resize(700,700)
+        .resize(600,600)
         .into(holder.imageViewWeatherStatus);
 holder.textViewNameDescription.setText(weather.getDescription());
 holder.textViewNameTemperature.setText(String.format("%.0f",mains.getTemp()));
@@ -116,7 +116,7 @@ holder.textViewChangeNameCity.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) &&
                         (i == KeyEvent.KEYCODE_ENTER)) {
-                    nameSity.setNameSity(holder.textViewChangeNameCity.getText().toString());
+                    nameSity.setNameSity(holder.textViewChangeNameCity.getText().toString().trim());
                     onClickListener.onGetNameSityClick(nameSity.getNameSity());
                     holder.textViewNameCity.setVisibility(View.VISIBLE);
                     holder.textViewChangeNameCity.setVisibility(View.GONE);

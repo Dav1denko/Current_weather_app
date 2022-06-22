@@ -11,6 +11,7 @@
         android:id="@+id/imageView_Fond"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="logo_open_weather"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/logo_open_weather" />
 
@@ -61,11 +62,13 @@
 
         <ImageView
             android:id="@+id/imageView_Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:layout_editor_absoluteX="69dp" />
+            app:srcCompat="@drawable/icon_tower" />
 
         <TextView
             android:id="@+id/textView_Description"
@@ -106,22 +109,27 @@
             android:layout_height="wrap_content"
             android:ems="7"
             android:gravity="center"
-            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:inputType="textCapSentences"
             android:minHeight="48dp"
             android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@id/imageView_Icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView_Icon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_NameCity"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
             android:text="TextView"
             android:textSize="20pt"
-            app:layout_constraintEnd_toEndOf="@+id/TextView_ChangeNameCity"
-            app:layout_constraintStart_toStartOf="@+id/TextView_ChangeNameCity"
-            app:layout_constraintTop_toTopOf="@+id/TextView_ChangeNameCity" />
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/imageView_Icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
