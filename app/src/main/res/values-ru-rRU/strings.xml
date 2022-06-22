@@ -5,4 +5,8 @@
     <string name="Humidity">Влажность:</string>
     <string name="WindSpeed">Скорость ветра:</string>
     <string name="metric">м/с</string>
+    <string name="CityName">Название города</string>
+    <string name="LogoOpenWeather">" Логотип Open Weather"</string>
+    <string name="WeatherStatus">Статус погоды</string>
+    <string name="IconCity">Ярлык города</string>
 </resources>

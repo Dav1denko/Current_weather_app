@@ -4,4 +4,13 @@
     <string name="Humidity">Humidity:</string>
     <string name="WindSpeed">Wind speed:</string>
     <string name="metric">m/sec</string>
+    <string name="LargeSimpleText" translatable="false">simple,simple,simple,simple,simple</string>
+    <string name="CityName">City name</string>
+    <string name="SimpleText" translatable="false">simple</string>
+    <string name="SimpleInteger" translatable="false">55</string>
+    <string name="LogoOpenWeather">Logo Open Weather</string>
+    <string name="WeatherStatus">WeatherStatus</string>
+    <string name="IconCity">IconCity</string>
+    <string name="Degree" translatable="false">°С</string>
+    <string name="percent" translatable="false">%</string>
 </resources>

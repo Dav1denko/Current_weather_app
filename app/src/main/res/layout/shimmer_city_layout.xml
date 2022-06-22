@@ -60,7 +60,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView_SetTemperature" />
 
         <ImageView
-            android:id="@+id/imageView_Icon"
+            android:id="@+id/imageView_IconCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -90,7 +90,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView_Icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_IconCity"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

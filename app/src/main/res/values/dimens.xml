@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="TextSizeSetParameter">30sp</dimen>
+    <dimen name="TextSizeTitle">25sp</dimen>
+    <dimen name="TextSizeTemperature">60sp</dimen>
+    <dimen name="PaddingTopTemperature">35dp</dimen>
+    <dimen name="MarginStartTitle">10dp</dimen>
+    <dimen name="MarginTopTitle">10dp</dimen>
+    <dimen name="MarginTopSetParameter">5dp</dimen>
+    <dimen name="ImageSizeWeatherStatus">170dp</dimen>
+    <dimen name="marginRightTemperature">50dp</dimen>
+    <dimen name="PaddingDate">2dp</dimen>
+    <dimen name="SpacingExtraDate">3dp</dimen>
+    <dimen name="ImageSizeIconCity">60dp</dimen>
+    <dimen name="MarginStartIconCity">80dp</dimen>
+    <dimen name="MarginTopIconCity">10dp</dimen>
+    <dimen name="WidthDescription">0dp</dimen>
+    <dimen name="marginStartDescription">5dp</dimen>
+    <dimen name="marginStartHumidity">2dp</dimen>
+    <dimen name="marginRightSetHumidity">15dp</dimen>
+    <dimen name="marginRightSetWindSpeed">105dp</dimen>
+    <dimen name="marginStartWindSpeed">7dp</dimen>
+    <dimen name="marginTopChangeNameCity">10dp</dimen>
+    <dimen name="widthNameCity">0dp</dimen>
+    <dimen name="marginTopNameCity">10dp</dimen>
+    <dimen name="TextSizeNameCity">20pt</dimen>
+</resources>
