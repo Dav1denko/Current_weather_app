@@ -81,7 +81,7 @@
 
 
         <EditText
-            android:id="@+id/TextView_ChangeNameCity"
+            android:id="@+id/TextView_ChangeCityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -94,13 +94,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView_NameCity"
+            android:id="@+id/textView_CityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20pt"
-            app:layout_constraintEnd_toEndOf="@+id/TextView_ChangeNameCity"
-            app:layout_constraintStart_toStartOf="@+id/TextView_ChangeNameCity"
-            app:layout_constraintTop_toTopOf="@+id/TextView_ChangeNameCity" />
+            app:layout_constraintEnd_toEndOf="@+id/TextView_ChangeCityName"
+            app:layout_constraintStart_toStartOf="@+id/TextView_ChangeCityName"
+            app:layout_constraintTop_toTopOf="@+id/TextView_ChangeCityName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

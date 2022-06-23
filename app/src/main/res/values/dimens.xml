@@ -20,8 +20,8 @@
     <dimen name="marginRightSetHumidity">15dp</dimen>
     <dimen name="marginRightSetWindSpeed">105dp</dimen>
     <dimen name="marginStartWindSpeed">7dp</dimen>
-    <dimen name="marginTopChangeNameCity">10dp</dimen>
-    <dimen name="widthNameCity">0dp</dimen>
-    <dimen name="marginTopNameCity">10dp</dimen>
-    <dimen name="TextSizeNameCity">20pt</dimen>
+    <dimen name="marginTopChangeCityName">10dp</dimen>
+    <dimen name="widthCityName">0dp</dimen>
+    <dimen name="marginTopCityName">10dp</dimen>
+    <dimen name="TextSizeCityName">20pt</dimen>
 </resources>

@@ -16,7 +16,7 @@ public class ApiFactory {
                 .baseUrl(BASE_URL)
                 .build();
 
-    };
+    }
 
     public static ApiFactory getInstance(){
         if (apiFactory == null){

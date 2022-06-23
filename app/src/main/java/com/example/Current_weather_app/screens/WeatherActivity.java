@@ -10,16 +10,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Current_weather_app.ADAPTERS.OnClickListener;
 import com.example.Current_weather_app.ADAPTERS.WeatherAdapter;
-import com.example.Current_weather_app.BuildConfig;
 import com.example.Current_weather_app.POJO.Main;
-import com.example.Current_weather_app.POJO.NameSity;
+import com.example.Current_weather_app.POJO.CityName;
 import com.example.Current_weather_app.POJO.Weather;
-import com.example.Current_weather_app.POJO.WeatherSity;
+import com.example.Current_weather_app.POJO.WeatherCity;
 import com.example.Current_weather_app.POJO.Wind;
 import com.example.Current_weather_app.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -55,10 +53,10 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         recyclerViewWeather.setAdapter(adapter);
         adapter.setMains(new Main());
         adapter.setWinds(new Wind());
-        adapter.setWeatherSityForDate(new WeatherSity());
+        adapter.setWeatherCityForDate(new WeatherCity());
         adapter.setWeathers(new ArrayList<Weather>());
         presenter.checkLocaleLanguage();
-        presenter.loadNameSity();
+        presenter.loadNameCity();
         presenter.loadData();
         swipeRefreshLayout.setColorSchemeColors(Color.RED);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -71,19 +69,19 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
 
         adapter.setOnClickListener(new OnClickListener() {
             @Override
-            public void onShowEditTextClick(long id) {
+            public void onShowKeyBoardClick(long id) {
                 InputMethodManager imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(0, 0);
 
             }
 
             @Override
-            public void onGetNameSityClick(String nameSity) {
-                if (nameSity.length() != 0){
-                presenter.ChangeNameSityForAdapter(nameSity);
+            public void onGetCityNameClick(String CityName) {
+                if (CityName.length() != 0){
+                presenter.ChangeNameCityForAdapter(CityName);
                 presenter.loadData();}
                 else {
-                    presenter.loadNameSity();
+                    presenter.loadNameCity();
                     presenter.loadData();
 
                 }
@@ -100,19 +98,19 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
 
 
     @Override
-    public void showData(WeatherSity weatherSity) {
-adapter.setMains(weatherSity.getMain());
-adapter.setWinds(weatherSity.getWind());
-adapter.setWeathers(weatherSity.getWeather());
-adapter.setWeatherSityForDate(weatherSity);
+    public void showData(WeatherCity weatherCity) {
+adapter.setMains(weatherCity.getMain());
+adapter.setWinds(weatherCity.getWind());
+adapter.setWeathers(weatherCity.getWeather());
+adapter.setWeatherCityForDate(weatherCity);
 shimmerFrameLayout.stopShimmer();
 recyclerViewWeather.setVisibility(View.VISIBLE);
 
     }
 
     @Override
-    public void showName(NameSity nameSity) {
-        adapter.setNameSity(nameSity);
+    public void showName(CityName cityName) {
+        adapter.setNameCity(cityName);
     }
 
     @Override
@@ -126,7 +124,7 @@ recyclerViewWeather.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void showErrorNameSity() {
+    public void showErrorNameCity() {
         Toast.makeText(this, "Город не найден", Toast.LENGTH_SHORT).show();
 
 

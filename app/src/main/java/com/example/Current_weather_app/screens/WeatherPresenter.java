@@ -2,14 +2,13 @@ package com.example.Current_weather_app.screens;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.example.Current_weather_app.API.ApiFactory;
 import com.example.Current_weather_app.API.ApiService;
 import com.example.Current_weather_app.BuildConfig;
 import com.example.Current_weather_app.POJO.MyApplication;
-import com.example.Current_weather_app.POJO.NameSity;
-import com.example.Current_weather_app.POJO.WeatherSity;
+import com.example.Current_weather_app.POJO.CityName;
+import com.example.Current_weather_app.POJO.WeatherCity;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -30,19 +29,19 @@ public class WeatherPresenter {
     private final String ErrorInternet = "Unable to resolve host \"api.openweathermap.org\": No address associated with hostname";
 
 
-   private final NameSity nameSity = new NameSity();
+   private final CityName cityName = new CityName();
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
 
-   public void ChangeNameSityForAdapter(String nameSityFromAdapter){
-       nameSity.setNameSity(nameSityFromAdapter);
-       preferences.edit().putString("SaveNameSity",nameSity.getNameSity()).apply();
-       weatherView.showName(nameSity);
+   public void ChangeNameCityForAdapter(String nameCityFromAdapter){
+       cityName.setNameCity(nameCityFromAdapter);
+       preferences.edit().putString("SaveNameCity", cityName.getNameCity()).apply();
+       weatherView.showName(cityName);
    }
 
-    public void loadNameSity(){
-       String SaveNameSity = preferences.getString("SaveNameSity","Лондон");
-       nameSity.setNameSity(SaveNameSity);
-        weatherView.showName(nameSity);
+    public void loadNameCity(){
+       String SaveNameCity = preferences.getString("SaveNameCity","London");
+       cityName.setNameCity(SaveNameCity);
+        weatherView.showName(cityName);
     }
 public String checkLocaleLanguage(){
        String LocaleLanguage;
@@ -60,13 +59,13 @@ public String checkLocaleLanguage(){
         ApiFactory apiFactory = ApiFactory.getInstance();
         ApiService apiService = apiFactory.getApiService();
         compositeDisposable = new CompositeDisposable();
-        Disposable disposable = apiService.getWeatherSity(nameSity.getNameSity(),checkLocaleLanguage(),apiKey,tempInCelsius)
+        Disposable disposable = apiService.getWeatherCity(cityName.getNameCity(),checkLocaleLanguage(),apiKey,tempInCelsius)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<WeatherSity>(){
+                .subscribe(new Consumer<WeatherCity>(){
                                @Override
-                               public void accept(WeatherSity weatherSity) throws Exception {
-weatherView.showData(weatherSity);
+                               public void accept(WeatherCity weatherCity) throws Exception {
+weatherView.showData(weatherCity);
 
                                }
                            },new Consumer<Throwable>(){
@@ -77,7 +76,7 @@ weatherView.showData(weatherSity);
 
                                    }else if(Objects.equals(throwable.getMessage(), "HTTP 404 Not Found")){
                                        preferences.edit().clear().apply();
-                                       weatherView.showErrorNameSity();
+                                       weatherView.showErrorNameCity();
 
                                    }
 

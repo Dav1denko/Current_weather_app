@@ -195,12 +195,12 @@
             app:layout_constraintStart_toEndOf="@+id/textView_SetWindSpeed"
             app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity" />
         <EditText
-            android:id="@+id/TextView_ChangeNameCity"
+            android:id="@+id/TextView_ChangeCityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="8"
             android:gravity="center"
-            android:layout_marginTop="@dimen/marginTopChangeNameCity"
+            android:layout_marginTop="@dimen/marginTopChangeCityName"
             android:inputType="textCapSentences"
             android:hint="@string/CityName"
             android:textSize="@dimen/TextSizeTitle"
@@ -209,14 +209,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView_NameCity"
-            android:layout_width="@dimen/widthNameCity"
+            android:id="@+id/textView_CityName"
+            android:layout_width="@dimen/widthCityName"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginTopNameCity"
+            android:layout_marginTop="@dimen/marginTopCityName"
             android:gravity="center"
             android:inputType="textMultiLine"
             android:textColor="@color/black"
-            android:textSize="@dimen/TextSizeNameCity"
+            android:textSize="@dimen/TextSizeCityName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_IconCity"
             app:layout_constraintTop_toTopOf="parent"

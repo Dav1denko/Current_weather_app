@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class WeatherSity {
+public class WeatherCity {
 //    @SerializedName("coord")
 //    @Expose
 //    private Coord coord;
@@ -24,9 +24,9 @@ public class WeatherSity {
     @SerializedName("wind")
     @Expose
     private Wind wind;
-    @SerializedName("clouds")
-    @Expose
-    private Clouds clouds;
+//    @SerializedName("clouds")
+//    @Expose
+//    private Clouds clouds;
     @SerializedName("dt")
     @Expose
     private int dt;
@@ -94,13 +94,13 @@ public class WeatherSity {
         this.wind = wind;
     }
 
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
+//    public Clouds getClouds() {
+//        return clouds;
+//    }
+//
+//    public void setClouds(Clouds clouds) {
+//        this.clouds = clouds;
+//    }
 
     public int getDt() {
         return dt;
