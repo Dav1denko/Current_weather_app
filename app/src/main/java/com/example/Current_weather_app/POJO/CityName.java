@@ -2,13 +2,13 @@ package com.example.Current_weather_app.POJO;
 
 public class CityName {
 
-    private String NameCity;
+    private String CityName;
 
-    public String getNameCity() {
-        return NameCity;
+    public String getCityName() {
+        return CityName;
     }
 
-    public void setNameCity(String nameCity) {
-        NameCity = nameCity;
+    public void setCityName(String cityName) {
+        CityName = cityName;
     }
 }

@@ -33,14 +33,14 @@ public class WeatherPresenter {
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
 
    public void ChangeNameCityForAdapter(String nameCityFromAdapter){
-       cityName.setNameCity(nameCityFromAdapter);
-       preferences.edit().putString("SaveNameCity", cityName.getNameCity()).apply();
+       cityName.setCityName(nameCityFromAdapter);
+       preferences.edit().putString("SaveNameCity", cityName.getCityName()).apply();
        weatherView.showName(cityName);
    }
 
     public void loadNameCity(){
        String SaveNameCity = preferences.getString("SaveNameCity","London");
-       cityName.setNameCity(SaveNameCity);
+       cityName.setCityName(SaveNameCity);
         weatherView.showName(cityName);
     }
 public String checkLocaleLanguage(){
@@ -59,7 +59,7 @@ public String checkLocaleLanguage(){
         ApiFactory apiFactory = ApiFactory.getInstance();
         ApiService apiService = apiFactory.getApiService();
         compositeDisposable = new CompositeDisposable();
-        Disposable disposable = apiService.getWeatherCity(cityName.getNameCity(),checkLocaleLanguage(),apiKey,tempInCelsius)
+        Disposable disposable = apiService.getWeatherCity(cityName.getCityName(),checkLocaleLanguage(),apiKey,tempInCelsius)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<WeatherCity>(){

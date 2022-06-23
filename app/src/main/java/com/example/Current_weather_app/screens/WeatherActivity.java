@@ -110,7 +110,7 @@ recyclerViewWeather.setVisibility(View.VISIBLE);
 
     @Override
     public void showName(CityName cityName) {
-        adapter.setNameCity(cityName);
+        adapter.setCityName(cityName);
     }
 
     @Override

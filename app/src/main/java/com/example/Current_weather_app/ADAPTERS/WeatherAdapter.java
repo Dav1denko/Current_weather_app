@@ -35,7 +35,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
 
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setNameCity(CityName cityName) {
+    public void setCityName(CityName cityName) {
         this.cityName = cityName;
         notifyDataSetChanged();
     }
@@ -96,14 +96,14 @@ holder.textViewHumidity.setText(Integer.toString(mainValues.getHumidity()));
 holder.textViewWindSpeed.setText(String.format("%.0f",winds.getSpeed()));
 holder.textViewNameDate.setText(dateConverter.dateForAdapter(weatherCityForDate.getDt(),
         weatherCityForDate.getTimezone()));
-holder.textViewNameCity.setText(cityName.getNameCity());
+holder.textViewNameCity.setText(cityName.getCityName());
 holder.textViewNameCity.setVisibility(View.VISIBLE);
 holder.textViewChangeNameCity.setVisibility(View.GONE);
 holder.textViewChangeNameCity.setOnKeyListener((view, i, keyEvent) -> {
     if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) &&
             (i == KeyEvent.KEYCODE_ENTER)) {
-        cityName.setNameCity(holder.textViewChangeNameCity.getText().toString().trim());
-        onClickListener.onGetCityNameClick(cityName.getNameCity());
+        cityName.setCityName(holder.textViewChangeNameCity.getText().toString().trim());
+        onClickListener.onGetCityNameClick(cityName.getCityName());
         holder.textViewNameCity.setVisibility(View.VISIBLE);
         holder.textViewChangeNameCity.setVisibility(View.GONE);
         onClickListener.onShowKeyBoardClick(view.getId());
