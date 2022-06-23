@@ -16,7 +16,6 @@ import com.example.Current_weather_app.ADAPTERS.OnClickListener;
 import com.example.Current_weather_app.ADAPTERS.WeatherAdapter;
 import com.example.Current_weather_app.POJO.MainValues;
 import com.example.Current_weather_app.POJO.CityName;
-import com.example.Current_weather_app.POJO.Weather;
 import com.example.Current_weather_app.POJO.WeatherCity;
 import com.example.Current_weather_app.POJO.Wind;
 import com.example.Current_weather_app.R;
@@ -54,17 +53,14 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         adapter.setMainValues(new MainValues());
         adapter.setWinds(new Wind());
         adapter.setWeatherCityForDate(new WeatherCity());
-        adapter.setWeathers(new ArrayList<Weather>());
+        adapter.setWeathers(new ArrayList<>());
         presenter.checkLocaleLanguage();
         presenter.loadNameCity();
         presenter.loadData();
         swipeRefreshLayout.setColorSchemeColors(Color.RED);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                presenter.loadData();
-                swipeRefreshLayout.setRefreshing(false);
-            }
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            presenter.loadData();
+            swipeRefreshLayout.setRefreshing(false);
         });
 
         adapter.setOnClickListener(new OnClickListener() {
@@ -79,12 +75,12 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
             public void onGetCityNameClick(String CityName) {
                 if (CityName.length() != 0){
                 presenter.ChangeNameCityForAdapter(CityName);
-                presenter.loadData();}
+                }
                 else {
                     presenter.loadNameCity();
-                    presenter.loadData();
 
                 }
+                presenter.loadData();
             }
         });
 

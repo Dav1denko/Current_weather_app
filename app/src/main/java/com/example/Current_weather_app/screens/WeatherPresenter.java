@@ -8,7 +8,7 @@ import com.example.Current_weather_app.API.ApiService;
 import com.example.Current_weather_app.BuildConfig;
 import com.example.Current_weather_app.POJO.MyApplication;
 import com.example.Current_weather_app.POJO.CityName;
-import com.example.Current_weather_app.POJO.WeatherCity;
+
 
 import java.util.Locale;
 import java.util.Objects;
@@ -16,16 +16,14 @@ import java.util.Objects;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
+
 import io.reactivex.schedulers.Schedulers;
 
 public class WeatherPresenter {
 
 
     private CompositeDisposable compositeDisposable;
-    private WeatherView weatherView;
-    private final String apiKey = BuildConfig.API_KEY;
-    private final String tempInCelsius = "metric";
+    private final WeatherView weatherView;
     private final String ErrorInternet = "Unable to resolve host \"api.openweathermap.org\": No address associated with hostname";
 
 
@@ -59,31 +57,24 @@ public String checkLocaleLanguage(){
         ApiFactory apiFactory = ApiFactory.getInstance();
         ApiService apiService = apiFactory.getApiService();
         compositeDisposable = new CompositeDisposable();
-        Disposable disposable = apiService.getWeatherCity(cityName.getCityName(),checkLocaleLanguage(),apiKey,tempInCelsius)
+        String apiKey = BuildConfig.API_KEY;
+        String tempInCelsius = "metric";
+        Disposable disposable = apiService.getWeatherCity(cityName.getCityName(),checkLocaleLanguage(), apiKey, tempInCelsius)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<WeatherCity>(){
-                               @Override
-                               public void accept(WeatherCity weatherCity) throws Exception {
-weatherView.showData(weatherCity);
+                .subscribe(weatherView::showData, throwable -> {
+                    if(Objects.equals(throwable.getMessage(), ErrorInternet))
+                    {weatherView.showErrorInternet();
 
-                               }
-                           },new Consumer<Throwable>(){
-                               @Override
-                               public void accept(Throwable throwable) throws Exception {
-                                   if(Objects.equals(throwable.getMessage(), ErrorInternet))
-                                   {weatherView.showErrorInternet();
+                    }else if(Objects.equals(throwable.getMessage(), "HTTP 404 Not Found")){
+                        preferences.edit().clear().apply();
+                        weatherView.showErrorNameCity();
 
-                                   }else if(Objects.equals(throwable.getMessage(), "HTTP 404 Not Found")){
-                                       preferences.edit().clear().apply();
-                                       weatherView.showErrorNameCity();
-
-                                   }
+                    }
 
 
 
-                               }
-                           }
+                }
                 );
         compositeDisposable.add(disposable);
 
