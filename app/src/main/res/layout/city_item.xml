@@ -34,6 +34,7 @@
             android:scaleType="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline"
+            app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="ImageContrastCheck" />
 
         <TextView
@@ -42,13 +43,13 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/marginRightTemperature"
             android:paddingTop="@dimen/PaddingTopTemperature"
-            android:text="@string/SimpleInteger"
             android:textColor="@color/black"
             android:textSize="@dimen/TextSizeTemperature"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
-            app:layout_constraintTop_toBottomOf="@id/guideline" />
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            tools:text="@string/SimpleInteger" />
 
         <TextView
             android:id="@+id/textViewIconDegree"
@@ -149,12 +150,12 @@
             android:layout_marginTop="@dimen/MarginTopSetParameter"
             android:layout_marginRight="@dimen/marginRightSetHumidity"
             android:gravity="center"
-            android:text="@string/SimpleInteger"
             android:textColor="@color/black"
             android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView_Humidity"
-            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription"
+            tools:text="@string/SimpleInteger" />
 
         <TextView
             android:id="@+id/textView_WindSpeed"
@@ -175,12 +176,12 @@
             android:layout_marginTop="@dimen/MarginTopSetParameter"
             android:layout_marginRight="@dimen/marginRightSetWindSpeed"
             android:gravity="center"
-            android:text="@string/SimpleInteger"
             android:textColor="@color/black"
             android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView_WindSpeed"
-            app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity"
+            tools:text="@string/SimpleInteger" />
 
         <TextView
             android:id="@+id/metricForWindSpeed"

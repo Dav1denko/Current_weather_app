@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/shimmer_color" />
+    <corners android:radius="@dimen/RadiusCornerView" />
+    <padding
+        android:bottom="@dimen/paddingCornerView"
+        android:left="@dimen/paddingCornerView"
+        android:right="@dimen/paddingCornerView"
+        android:top="@dimen/paddingCornerView" />
+</shape>

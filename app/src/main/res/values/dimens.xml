@@ -21,7 +21,24 @@
     <dimen name="marginRightSetWindSpeed">105dp</dimen>
     <dimen name="marginStartWindSpeed">7dp</dimen>
     <dimen name="marginTopChangeCityName">10dp</dimen>
+    <dimen name="widthShimmer">0dp</dimen>
     <dimen name="widthCityName">0dp</dimen>
     <dimen name="marginTopCityName">10dp</dimen>
     <dimen name="TextSizeCityName">20pt</dimen>
+    <dimen name="widthWeatherStatusShimmer">130dp</dimen>
+    <dimen name="heightWeatherStatusShimmer">140dp</dimen>
+    <dimen name="marginEndShimmer">20dp</dimen>
+    <dimen name="paddingTopShimmer">10dp</dimen>
+    <dimen name="marginRightSetTemperatureShimmer">100dp</dimen>
+    <dimen name="marginSetDateShimmer">20sp</dimen>
+    <dimen name="marginTop25dpShimmer">25dp</dimen>
+    <dimen name="marginStartSetDescriptionShimmer">55dp</dimen>
+    <dimen name="marginTopSetDescriptionShimmer">15dp</dimen>
+    <dimen name="MarginTopSetHumidityShimmer">15dp</dimen>
+    <dimen name="MarginStartSetHumidityShimmer">60dp</dimen>
+    <dimen name="marginTopWindSpeedShimmer">27dp</dimen>
+    <dimen name="marginTopSetWindSpeedShimmer">15dp</dimen>
+    <dimen name="marginStartSetWindSpeedShimmer">30dp</dimen>
+    <dimen name="RadiusCornerView">40dp</dimen>
+    <dimen name="paddingCornerView">5dp</dimen>
 </resources>
