@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.Current_weather_app.ADAPTERS.OnClickListener;
 import com.example.Current_weather_app.ADAPTERS.WeatherAdapter;
-import com.example.Current_weather_app.POJO.Main;
+import com.example.Current_weather_app.POJO.MainValues;
 import com.example.Current_weather_app.POJO.CityName;
 import com.example.Current_weather_app.POJO.Weather;
 import com.example.Current_weather_app.POJO.WeatherCity;
@@ -51,7 +51,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         adapter = new WeatherAdapter();
         recyclerViewWeather.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewWeather.setAdapter(adapter);
-        adapter.setMains(new Main());
+        adapter.setMainValues(new MainValues());
         adapter.setWinds(new Wind());
         adapter.setWeatherCityForDate(new WeatherCity());
         adapter.setWeathers(new ArrayList<Weather>());
@@ -99,7 +99,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
 
     @Override
     public void showData(WeatherCity weatherCity) {
-adapter.setMains(weatherCity.getMain());
+adapter.setMainValues(weatherCity.getMainValues());
 adapter.setWinds(weatherCity.getWind());
 adapter.setWeathers(weatherCity.getWeather());
 adapter.setWeatherCityForDate(weatherCity);

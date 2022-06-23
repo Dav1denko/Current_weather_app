@@ -17,7 +17,7 @@ public class WeatherCity {
     private String base;
     @SerializedName("main")
     @Expose
-    private Main main;
+    private MainValues mainValues;
     @SerializedName("visibility")
     @Expose
     private int visibility;
@@ -70,12 +70,12 @@ public class WeatherCity {
         this.base = base;
     }
 
-    public Main getMain() {
-        return main;
+    public MainValues getMainValues() {
+        return mainValues;
     }
 
-    public void setMain(Main main) {
-        this.main = main;
+    public void setMain(MainValues mainValues) {
+        this.mainValues = mainValues;
     }
 
     public int getVisibility() {

@@ -3,7 +3,7 @@ package com.example.Current_weather_app.POJO;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Main {
+public class MainValues {
     @SerializedName("temp")
     @Expose
     private double temp;

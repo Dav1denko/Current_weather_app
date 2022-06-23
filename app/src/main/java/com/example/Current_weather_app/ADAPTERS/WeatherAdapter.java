@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Current_weather_app.Converters.DateConverter;
-import com.example.Current_weather_app.POJO.Main;
+import com.example.Current_weather_app.POJO.MainValues;
 import com.example.Current_weather_app.POJO.CityName;
 import com.example.Current_weather_app.POJO.Weather;
 import com.example.Current_weather_app.POJO.WeatherCity;
@@ -27,7 +27,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
 
     private CityName cityName;
     private OnClickListener onClickListener;
-    private Main mains;
+    private MainValues mainValues;
     private Wind winds;
     private List<Weather> weathers;
     private WeatherCity weatherCityForDate;
@@ -54,8 +54,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
 
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setMains(Main mains) {
-        this.mains = mains;
+    public void setMainValues(MainValues mainValues) {
+        this.mainValues = mainValues;
         notifyDataSetChanged();
     }
 
@@ -91,8 +91,8 @@ Picasso.get().load(String.format(IconURL, weather.getIcon()))
         .resize(600,600)
         .into(holder.imageViewWeatherStatus);
 holder.textViewNameDescription.setText(weather.getDescription());
-holder.textViewNameTemperature.setText(String.format("%.0f",mains.getTemp()));
-holder.textViewHumidity.setText(Integer.toString(mains.getHumidity()));
+holder.textViewNameTemperature.setText(String.format("%.0f", mainValues.getTemp()));
+holder.textViewHumidity.setText(Integer.toString(mainValues.getHumidity()));
 holder.textViewWindSpeed.setText(String.format("%.0f",winds.getSpeed()));
 holder.textViewNameDate.setText(dateConverter.dateForAdapter(weatherCityForDate.getDt(),
         weatherCityForDate.getTimezone()));
