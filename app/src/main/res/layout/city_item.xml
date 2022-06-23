@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/CardView"
@@ -41,12 +40,12 @@
             android:id="@+id/textView_SetTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/marginRightTemperature"
+            android:paddingTop="@dimen/PaddingTopTemperature"
             android:text="@string/SimpleInteger"
             android:textColor="@color/black"
-            android:paddingTop="@dimen/PaddingTopTemperature"
             android:textSize="@dimen/TextSizeTemperature"
             android:textStyle="bold"
-            android:layout_marginRight="@dimen/marginRightTemperature"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
             app:layout_constraintTop_toBottomOf="@id/guideline" />
@@ -56,27 +55,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/PaddingTopTemperature"
+            android:text="@string/Degree"
+            android:textColor="@color/black"
             android:textSize="@dimen/TextSizeTemperature"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/textView_SetTemperature"
-            app:layout_constraintTop_toBottomOf="@id/guideline"
-            android:text="@string/Degree" />
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <TextView
             android:id="@+id/textView_SetDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/SimpleText"
-            android:textSize="@dimen/TextSizeTitle"
-            android:textColor="@color/black"
             android:gravity="center"
-            android:padding="@dimen/PaddingDate"
-            android:textStyle="italic"
             android:lineSpacingExtra="@dimen/SpacingExtraDate"
+            android:padding="@dimen/PaddingDate"
+            android:textColor="@color/black"
+            android:textSize="@dimen/TextSizeTitle"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_WeatherStatus"
-            app:layout_constraintTop_toBottomOf="@+id/textView_SetTemperature" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetTemperature"
+            tools:text="@string/SimpleText" />
 
         <ImageView
             android:id="@+id/imageView_IconCity"
@@ -93,52 +92,52 @@
             android:id="@+id/textView_Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/MarginTopTitle"
-            android:textSize="@dimen/TextSizeTitle"
-            android:gravity="center"
-            android:textColor="@color/black"
             android:layout_marginStart="@dimen/MarginStartTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_SetDate"
+            android:layout_marginTop="@dimen/MarginTopTitle"
+            android:gravity="center"
+            android:text="@string/Description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/TextSizeTitle"
             app:layout_constraintEnd_toStartOf="@+id/textView_SetDescription"
-            android:text="@string/Description" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_SetDate" />
 
         <TextView
             android:id="@+id/textView_SetDescription"
             android:layout_width="@dimen/WidthDescription"
             android:layout_height="wrap_content"
-            tools:text="@string/LargeSimpleText"
-            android:inputType="textMultiLine"
-            android:textSize="@dimen/TextSizeSetParameter"
-            android:layout_marginTop="@dimen/MarginTopSetParameter"
-            android:maxLines="2"
-            android:gravity="center"
-            android:textColor="@color/black"
             android:layout_marginStart="@dimen/marginStartDescription"
+            android:layout_marginTop="@dimen/MarginTopSetParameter"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView_Description"
-            app:layout_constraintTop_toBottomOf="@id/textView_SetDate" />
+            app:layout_constraintTop_toBottomOf="@id/textView_SetDate"
+            tools:text="@string/LargeSimpleText" />
 
         <TextView
             android:id="@+id/textView_Humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/TextSizeTitle"
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/MarginTopTitle"
             android:layout_marginStart="@dimen/MarginStartTitle"
+            android:layout_marginTop="@dimen/MarginTopTitle"
+            android:text="@string/Humidity"
+            android:textColor="@color/black"
+            android:textSize="@dimen/TextSizeTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription"
-            android:text="@string/Humidity" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription" />
 
         <TextView
             android:id="@+id/percentForHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStartHumidity"
             android:layout_marginTop="@dimen/MarginTopSetParameter"
             android:text="@string/percent"
             android:textColor="@color/black"
-            android:layout_marginStart="@dimen/marginStartHumidity"
             android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintStart_toEndOf="@+id/textView_SetHumidity"
             app:layout_constraintTop_toBottomOf="@+id/textView_SetDescription" />
@@ -148,9 +147,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/MarginTopSetParameter"
+            android:layout_marginRight="@dimen/marginRightSetHumidity"
             android:gravity="center"
             android:text="@string/SimpleInteger"
-            android:layout_marginRight="@dimen/marginRightSetHumidity"
             android:textColor="@color/black"
             android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,8 +163,8 @@
             android:layout_marginStart="@dimen/MarginStartTitle"
             android:layout_marginTop="@dimen/MarginTopTitle"
             android:text="@string/WindSpeed"
-            android:textSize="@dimen/TextSizeTitle"
             android:textColor="@color/black"
+            android:textSize="@dimen/TextSizeTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_Humidity" />
 
@@ -174,38 +173,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/MarginTopSetParameter"
+            android:layout_marginRight="@dimen/marginRightSetWindSpeed"
             android:gravity="center"
             android:text="@string/SimpleInteger"
             android:textColor="@color/black"
-            android:layout_marginRight="@dimen/marginRightSetWindSpeed"
             android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView_WindSpeed"
-            app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity" />
+
         <TextView
             android:id="@+id/metricForWindSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStartWindSpeed"
             android:layout_marginTop="@dimen/MarginTopSetParameter"
             android:text="@string/metric"
-            android:textSize="@dimen/TextSizeSetParameter"
             android:textColor="@color/black"
-            android:layout_marginStart="@dimen/marginStartWindSpeed"
+            android:textSize="@dimen/TextSizeSetParameter"
             app:layout_constraintStart_toEndOf="@+id/textView_SetWindSpeed"
             app:layout_constraintTop_toBottomOf="@+id/textView_SetHumidity" />
+
         <EditText
             android:id="@+id/TextView_ChangeCityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTopChangeCityName"
             android:ems="8"
             android:gravity="center"
-            android:layout_marginTop="@dimen/marginTopChangeCityName"
-            android:inputType="textCapSentences"
             android:hint="@string/CityName"
+            android:inputType="textCapSentences"
             android:textSize="@dimen/TextSizeTitle"
-            app:layout_constraintStart_toEndOf="@id/imageView_IconCity"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView_IconCity"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

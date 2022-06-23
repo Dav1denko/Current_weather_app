@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>{
+public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder> {
 
 
     private CityName cityName;
@@ -31,7 +31,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     private Wind winds;
     private List<Weather> weathers;
     private WeatherCity weatherCityForDate;
-
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -52,7 +51,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     }
 
 
-
     @SuppressLint("NotifyDataSetChanged")
     public void setMainValues(MainValues mainValues) {
         this.mainValues = mainValues;
@@ -67,7 +65,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     }
 
 
-
     @SuppressLint("NotifyDataSetChanged")
     public void setWeathers(List<Weather> weathers) {
         this.weathers = weathers;
@@ -77,50 +74,49 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     @NonNull
     @Override
     public WeatherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.city_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.city_item, parent, false);
         return new WeatherViewHolder(view);
     }
 
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
-Weather weather = weathers.get(position);
-DateConverter dateConverter = new DateConverter();
-final String IconURL = "http://openweathermap.org/img/wn/%s@2x.png";
-Picasso.get().load(String.format(IconURL, weather.getIcon()))
-        .resize(600,600)
-        .into(holder.imageViewWeatherStatus);
-holder.textViewNameDescription.setText(weather.getDescription());
-holder.textViewNameTemperature.setText(String.format("%.0f", mainValues.getTemp()));
-holder.textViewHumidity.setText(Integer.toString(mainValues.getHumidity()));
-holder.textViewWindSpeed.setText(String.format("%.0f",winds.getSpeed()));
-holder.textViewNameDate.setText(dateConverter.dateForAdapter(weatherCityForDate.getDt(),
-        weatherCityForDate.getTimezone()));
-holder.textViewNameCity.setText(cityName.getCityName());
-holder.textViewNameCity.setVisibility(View.VISIBLE);
-holder.textViewChangeNameCity.setVisibility(View.GONE);
-holder.textViewChangeNameCity.setOnKeyListener((view, i, keyEvent) -> {
-    if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) &&
-            (i == KeyEvent.KEYCODE_ENTER)) {
-        cityName.setCityName(holder.textViewChangeNameCity.getText().toString().trim());
-        onClickListener.onGetCityNameClick(cityName.getCityName());
+        Weather weather = weathers.get(position);
+        DateConverter dateConverter = new DateConverter();
+        final String IconURL = "http://openweathermap.org/img/wn/%s@2x.png";
+        Picasso.get().load(String.format(IconURL, weather.getIcon()))
+                .resize(600, 600)
+                .into(holder.imageViewWeatherStatus);
+        holder.textViewNameDescription.setText(weather.getDescription());
+        holder.textViewNameTemperature.setText(String.format("%.0f", mainValues.getTemp()));
+        holder.textViewHumidity.setText(Integer.toString(mainValues.getHumidity()));
+        holder.textViewWindSpeed.setText(String.format("%.0f", winds.getSpeed()));
+        holder.textViewNameDate.setText(dateConverter.dateForAdapter(weatherCityForDate.getDt(),
+                weatherCityForDate.getTimezone()));
+        holder.textViewNameCity.setText(cityName.getCityName());
         holder.textViewNameCity.setVisibility(View.VISIBLE);
         holder.textViewChangeNameCity.setVisibility(View.GONE);
-        onClickListener.onShowKeyBoardClick(view.getId());
-        holder.textViewChangeNameCity.setText("");
-        return true;
+        holder.textViewChangeNameCity.setOnKeyListener((view, i, keyEvent) -> {
+            if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) &&
+                    (i == KeyEvent.KEYCODE_ENTER)) {
+                cityName.setCityName(holder.textViewChangeNameCity.getText().toString().trim());
+                onClickListener.onGetCityNameClick(cityName.getCityName());
+                holder.textViewNameCity.setVisibility(View.VISIBLE);
+                holder.textViewChangeNameCity.setVisibility(View.GONE);
+                onClickListener.onShowKeyBoardClick(view.getId());
+                holder.textViewChangeNameCity.setText("");
+                return true;
+            }
+            return false;
+        });
     }
-    return false;
-});
 
-
-    }
     @Override
     public int getItemCount() {
         return weathers.size();
     }
 
-    class WeatherViewHolder extends RecyclerView.ViewHolder{
+    class WeatherViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewChangeNameCity;
         private final TextView textViewNameTemperature;
         private final TextView textViewNameDate;
@@ -129,7 +125,6 @@ holder.textViewChangeNameCity.setOnKeyListener((view, i, keyEvent) -> {
         private final TextView textViewNameCity;
         private final TextView textViewHumidity;
         private final TextView textViewWindSpeed;
-
 
 
         public WeatherViewHolder(@NonNull View itemView) {
@@ -143,20 +138,15 @@ holder.textViewChangeNameCity.setOnKeyListener((view, i, keyEvent) -> {
             textViewHumidity = itemView.findViewById(R.id.textView_SetHumidity);
             textViewNameCity = itemView.findViewById(R.id.textView_CityName);
             textViewNameCity.setOnClickListener(view -> {
-                if (onClickListener != null){
+                if (onClickListener != null) {
                     textViewNameCity.setVisibility(View.GONE);
                     textViewChangeNameCity.setVisibility(View.VISIBLE);
                     textViewChangeNameCity.requestFocus();
-                   onClickListener.onShowKeyBoardClick(view.getId());
+                    onClickListener.onShowKeyBoardClick(view.getId());
 
-            }
+                }
             });
-
-
-                           }
-
-
-
         }
     }
+}
 

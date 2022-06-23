@@ -12,17 +12,11 @@ public class Weather {
     @Expose
     private String icon;
 
-
-
     public String getDescription() {
         return description;
     }
 
-
-
     public String getIcon() {
         return icon;
     }
-
-
 }

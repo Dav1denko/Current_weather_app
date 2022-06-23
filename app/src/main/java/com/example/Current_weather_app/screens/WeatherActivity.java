@@ -32,12 +32,6 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
     private ShimmerFrameLayout shimmerFrameLayout;
 
 
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,42 +60,32 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         adapter.setOnClickListener(new OnClickListener() {
             @Override
             public void onShowKeyBoardClick(long id) {
-                InputMethodManager imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(0, 0);
-
             }
 
             @Override
             public void onGetCityNameClick(String CityName) {
-                if (CityName.length() != 0){
-                presenter.ChangeNameCityForAdapter(CityName);
-                }
-                else {
+                if (CityName.length() != 0) {
+                    presenter.ChangeNameCityForAdapter(CityName);
+                } else {
                     presenter.loadNameCity();
 
                 }
                 presenter.loadData();
             }
         });
-
-
-
-
-
-
     }
-
 
 
     @Override
     public void showData(WeatherCity weatherCity) {
-adapter.setMainValues(weatherCity.getMainValues());
-adapter.setWinds(weatherCity.getWind());
-adapter.setWeathers(weatherCity.getWeather());
-adapter.setWeatherCityForDate(weatherCity);
-shimmerFrameLayout.stopShimmer();
-recyclerViewWeather.setVisibility(View.VISIBLE);
-
+        adapter.setMainValues(weatherCity.getMainValues());
+        adapter.setWinds(weatherCity.getWind());
+        adapter.setWeathers(weatherCity.getWeather());
+        adapter.setWeatherCityForDate(weatherCity);
+        shimmerFrameLayout.stopShimmer();
+        recyclerViewWeather.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -113,25 +97,17 @@ recyclerViewWeather.setVisibility(View.VISIBLE);
     public void showErrorInternet() {
         recyclerViewWeather.setVisibility(View.GONE);
         shimmerFrameLayout.startShimmer();
-
-
-
-        Toast.makeText(this, "подключите интернет и обновите", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.ErrorInternet, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showErrorNameCity() {
-        Toast.makeText(this, "Город не найден", Toast.LENGTH_SHORT).show();
-
-
-
+        Toast.makeText(this, R.string.ErrorNameCity, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onDestroy() {
-presenter.disposeDisposable();
-
-
+        presenter.disposeDisposable();
         super.onDestroy();
     }
 }

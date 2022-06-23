@@ -23,38 +23,24 @@ public class WeatherCity {
     @Expose
     private int timezone;
 
-
-
-
     public List<Weather> getWeather() {
         return weather;
     }
-
-
 
     public MainValues getMainValues() {
         return mainValues;
     }
 
-
-
     public Wind getWind() {
         return wind;
     }
-
-
 
     public int getDt() {
         return dt;
     }
 
-
-
     public int getTimezone() {
         return timezone;
     }
-
-
-
 
 }

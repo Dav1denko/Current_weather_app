@@ -20,7 +20,4 @@ public class MainValues {
     public int getHumidity() {
         return humidity;
     }
-
-  
-
 }

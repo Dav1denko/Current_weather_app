@@ -9,7 +9,8 @@ public class ApiFactory {
     private static ApiFactory apiFactory;
     private static Retrofit retrofit;
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
-    private ApiFactory(){
+
+    private ApiFactory() {
         retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -18,13 +19,14 @@ public class ApiFactory {
 
     }
 
-    public static ApiFactory getInstance(){
-        if (apiFactory == null){
+    public static ApiFactory getInstance() {
+        if (apiFactory == null) {
             apiFactory = new ApiFactory();
         }
         return apiFactory;
     }
-    public ApiService getApiService(){
+
+    public ApiService getApiService() {
         return retrofit.create(ApiService.class);
 
     }

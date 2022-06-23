@@ -9,4 +9,6 @@
     <string name="LogoOpenWeather">" Логотип Open Weather"</string>
     <string name="WeatherStatus">Статус погоды</string>
     <string name="IconCity">Ярлык города</string>
+    <string name="ErrorInternet">подключите интернет и обновите</string>
+    <string name="ErrorNameCity">Город не найден</string>
 </resources>

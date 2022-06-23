@@ -13,4 +13,6 @@
     <string name="IconCity">IconCity</string>
     <string name="Degree" translatable="false">°С</string>
     <string name="percent" translatable="false">%</string>
+    <string name="ErrorInternet">Connect internet and update</string>
+    <string name="ErrorNameCity">City not found</string>
 </resources>

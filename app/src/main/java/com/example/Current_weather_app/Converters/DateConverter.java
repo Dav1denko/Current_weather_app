@@ -8,7 +8,7 @@ import java.util.TimeZone;
 
 public class DateConverter {
 
-    public String dateForAdapter(int dt, int timezone){
+    public String dateForAdapter(int dt, int timezone) {
         Date date = new Date((dt + timezone) * 1000L);
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm \n dd:MM:yyyy");

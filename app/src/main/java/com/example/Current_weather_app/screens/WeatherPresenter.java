@@ -27,64 +27,61 @@ public class WeatherPresenter {
     private final String ErrorInternet = "Unable to resolve host \"api.openweathermap.org\": No address associated with hostname";
 
 
-   private final CityName cityName = new CityName();
+    private final CityName cityName = new CityName();
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
 
-   public void ChangeNameCityForAdapter(String nameCityFromAdapter){
-       cityName.setCityName(nameCityFromAdapter);
-       preferences.edit().putString("SaveNameCity", cityName.getCityName()).apply();
-       weatherView.showName(cityName);
-   }
-
-    public void loadNameCity(){
-       String SaveNameCity = preferences.getString("SaveNameCity","London");
-       cityName.setCityName(SaveNameCity);
+    public void ChangeNameCityForAdapter(String nameCityFromAdapter) {
+        cityName.setCityName(nameCityFromAdapter);
+        preferences.edit().putString("SaveNameCity", cityName.getCityName()).apply();
         weatherView.showName(cityName);
     }
-public String checkLocaleLanguage(){
-       String LocaleLanguage;
-       if (Locale.getDefault().getLanguage().equals("ru")){
-       LocaleLanguage = "ru";}
-       else { LocaleLanguage = "eng";}
-       return LocaleLanguage;
 
-}
+    public void loadNameCity() {
+        String SaveNameCity = preferences.getString("SaveNameCity", "London");
+        cityName.setCityName(SaveNameCity);
+        weatherView.showName(cityName);
+    }
+
+    public String checkLocaleLanguage() {
+        String LocaleLanguage;
+        if (Locale.getDefault().getLanguage().equals("ru")) {
+            LocaleLanguage = "ru";
+        } else {
+            LocaleLanguage = "eng";
+        }
+        return LocaleLanguage;
+
+    }
+
     public WeatherPresenter(WeatherView weatherView) {
         this.weatherView = weatherView;
     }
 
-    public void loadData(){
+    public void loadData() {
         ApiFactory apiFactory = ApiFactory.getInstance();
         ApiService apiService = apiFactory.getApiService();
         compositeDisposable = new CompositeDisposable();
         String apiKey = BuildConfig.API_KEY;
         String tempInCelsius = "metric";
-        Disposable disposable = apiService.getWeatherCity(cityName.getCityName(),checkLocaleLanguage(), apiKey, tempInCelsius)
+        Disposable disposable = apiService.getWeatherCity(cityName.getCityName(), checkLocaleLanguage(), apiKey, tempInCelsius)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(weatherView::showData, throwable -> {
-                    if(Objects.equals(throwable.getMessage(), ErrorInternet))
-                    {weatherView.showErrorInternet();
+                            if (Objects.equals(throwable.getMessage(), ErrorInternet)) {
+                                weatherView.showErrorInternet();
 
-                    }else if(Objects.equals(throwable.getMessage(), "HTTP 404 Not Found")){
-                        preferences.edit().clear().apply();
-                        weatherView.showErrorNameCity();
-
-                    }
-
-
-
-                }
+                            } else if (Objects.equals(throwable.getMessage(), "HTTP 404 Not Found")) {
+                                preferences.edit().clear().apply();
+                                weatherView.showErrorNameCity();
+                            }
+                        }
                 );
         compositeDisposable.add(disposable);
-
-
-
-
-
     }
-    public void disposeDisposable(){
-        if (compositeDisposable!=null){
-        compositeDisposable.dispose();}
+
+    public void disposeDisposable() {
+        if (compositeDisposable != null) {
+            compositeDisposable.dispose();
+        }
     }
 }
