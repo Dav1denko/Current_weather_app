@@ -16,7 +16,6 @@ public class ApiFactory {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(BASE_URL)
                 .build();
-
     }
 
     public static ApiFactory getInstance() {
@@ -28,6 +27,5 @@ public class ApiFactory {
 
     public ApiService getApiService() {
         return retrofit.create(ApiService.class);
-
     }
 }

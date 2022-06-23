@@ -15,5 +15,4 @@ public class DateConverter {
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         return sdf.format(date);
     }
-
 }

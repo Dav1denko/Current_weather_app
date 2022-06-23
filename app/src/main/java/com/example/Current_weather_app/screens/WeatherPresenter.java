@@ -25,8 +25,6 @@ public class WeatherPresenter {
     private CompositeDisposable compositeDisposable;
     private final WeatherView weatherView;
     private final String ErrorInternet = "Unable to resolve host \"api.openweathermap.org\": No address associated with hostname";
-
-
     private final CityName cityName = new CityName();
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
 

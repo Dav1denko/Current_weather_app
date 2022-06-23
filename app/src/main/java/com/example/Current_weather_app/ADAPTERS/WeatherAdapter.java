@@ -143,7 +143,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
                     textViewChangeNameCity.setVisibility(View.VISIBLE);
                     textViewChangeNameCity.requestFocus();
                     onClickListener.onShowKeyBoardClick(view.getId());
-
                 }
             });
         }

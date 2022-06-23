@@ -70,7 +70,6 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
                     presenter.ChangeNameCityForAdapter(CityName);
                 } else {
                     presenter.loadNameCity();
-
                 }
                 presenter.loadData();
             }

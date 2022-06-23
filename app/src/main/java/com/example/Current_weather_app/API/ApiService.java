@@ -10,5 +10,4 @@ public interface ApiService {
     @GET("weather?")
     Observable<WeatherCity> getWeatherCity(@Query("q") String nameCity, @Query("lang") String LocaleLanguage,
                                            @Query("appid") String api_id, @Query("units") String tempInCelsius);
-
 }
