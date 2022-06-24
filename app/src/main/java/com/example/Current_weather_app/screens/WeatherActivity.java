@@ -76,7 +76,6 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView {
         });
     }
 
-
     @Override
     public void showData(WeatherCity weatherCity) {
         adapter.setMainValues(weatherCity.getMainValues());
